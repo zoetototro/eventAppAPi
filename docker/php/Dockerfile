@@ -12,6 +12,12 @@ zip \
 unzip \
 vim
 
+RUN { \
+  echo 'max_execution_time=-1'; \
+  echo 'memory_limit=-1'; \
+  echo 'post_max_size=-1'; \
+}
+
 RUN apt-get update \
     && apt-get install -y libpq-dev \
     && docker-php-ext-install pdo_mysql pdo_pgsql
