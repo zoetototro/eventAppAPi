@@ -29,6 +29,10 @@ class AuthController extends Controller
                 'name' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:users',
                 'password' => 'required|string|min:6',
+                'sex'=> 'required','string',
+                'income'=> 'required','string',
+                'prefecture'=> 'required','string',
+                'age' => 'required','number'
             ]);
 
             if($validator->fails()){
@@ -38,6 +42,10 @@ class AuthController extends Controller
             $user = User::create([
                 'name' => $request->get('name'),
                 'email' => $request->get('email'),
+                'sex' => $request->get('sex'),
+                'income' => $request->get('income'),
+                'prefecture' => $request->get('prefecture'),
+                'age' => $request->get('age'),
                 'password' => Hash::make($request->get('password')),
             ]);
 
