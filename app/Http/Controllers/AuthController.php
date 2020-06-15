@@ -32,7 +32,7 @@ class AuthController extends Controller
                 'sex'=> 'required','string',
                 'income'=> 'required','string',
                 'prefecture'=> 'required','string',
-                'age' => 'required','number'
+                'birthday' => 'required','string'
             ]);
 
             if($validator->fails()){
@@ -45,7 +45,7 @@ class AuthController extends Controller
                 'sex' => $request->get('sex'),
                 'income' => $request->get('income'),
                 'prefecture' => $request->get('prefecture'),
-                'age' => $request->get('age'),
+                'birthday' => $request->get('birthday'),
                 'password' => Hash::make($request->get('password')),
             ]);
 
