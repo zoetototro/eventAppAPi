@@ -18,4 +18,3 @@ Route::get('/upload', function () {
     return view('post/create');
 });
 
-Route::post('/upload','PostsController@create');

@@ -26,7 +26,11 @@ class PostsController extends Controller
         $post->image_path = Storage::disk('s3')->url($path);
   
         $post->save();
+
+        return response()->json([
+            'main_image' => $post->image_path
+        ]);
   
-        return redirect('/');
+        //return redirect('/');
     }
 }
