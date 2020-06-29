@@ -56,7 +56,6 @@ class RegisterController extends Controller
             'sex'=> ['required','string'],
             'income'=> ['required','string'],
             'prefecture'=> ['required','string'],
-            'age' => ['required','number']
         ]);
     }
 
