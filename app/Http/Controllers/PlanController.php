@@ -35,6 +35,13 @@ class PlanController extends Controller
      */
     public function store(Request $request)
     {
+        $plan = new Plan;
+        $plan->user_id = $request->user()->id;
+        $plan->plan = $request->plan;
+        $plan->plan_detail = $request->plan_detail;
+        $plan->condition = $request->condition;
+        $plan->condition_detail = $request->condition_detail;
+        $plan->save();
         return Plan::create($request->all());
     }
 

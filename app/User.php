@@ -13,7 +13,7 @@ class User extends Authenticatable implements JWTSubject
 
     public function plan()
     {
-        return $this->hasOne('App\Plan');
+        return $this->hasMany('App\Plan');
     }
 
     /**
