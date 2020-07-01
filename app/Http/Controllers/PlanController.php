@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Plan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PlanController extends Controller
 {
@@ -14,7 +15,7 @@ class PlanController extends Controller
      */
     public function index()
     {
-        //
+        $plans = Plan::All();
     }
 
     /**
@@ -36,12 +37,11 @@ class PlanController extends Controller
     public function store(Request $request)
     {
         $plan = new Plan;
-        $plan->user_id = $request->user()->id;
+        //$plan->user_id = Auth::user();
         $plan->plan = $request->plan;
         $plan->plan_detail = $request->plan_detail;
         $plan->condition = $request->condition;
         $plan->condition_detail = $request->condition_detail;
-        $plan->save();
         return Plan::create($request->all());
     }
 
