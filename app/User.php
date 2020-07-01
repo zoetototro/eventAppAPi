@@ -11,13 +11,18 @@ class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
 
+    public function plans()
+    {
+        return $this->hasMany('App\Plan');
+    }
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','sex','birthday','income','prefecture'
     ];
 
     /**

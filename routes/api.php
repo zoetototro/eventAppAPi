@@ -28,4 +28,7 @@ Route::group([
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
     Route::post('me', 'AuthController@me');
+    Route::post('post', 'AuthController@me');
+    Route::post('upload','PostsController@create');
+    Route::post('plan','PlanController@store');
 });
