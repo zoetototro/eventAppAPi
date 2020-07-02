@@ -17,12 +17,11 @@ class MessageController extends Controller
     public function index()
     {
         $user = Auth::user();
-        var_dump($user);
  
         // ログイン者以外のユーザを取得する
-        //$users = User::where('id' ,'<>' , $user->id)->get();
+        $users = User::where('id' ,'<>' , $user->id)->get();
         // チャットユーザ選択画面を表示
-        return $user;
+        return $users;
     }
 
     /**
