@@ -31,4 +31,7 @@ Route::group([
     Route::post('post', 'AuthController@me');
     Route::post('upload','PostsController@create');
     Route::post('plan','PlanController@store');
+    Route::get('message','MessageController@index');
 });
+
+

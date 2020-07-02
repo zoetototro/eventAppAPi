@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Plan;
+use App\Message;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class PlanController extends Controller
+class MessageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,13 @@ class PlanController extends Controller
      */
     public function index()
     {
-        $plans = Plan::All();
+        $user = Auth::user();
+        var_dump($user);
+ 
+        // ログイン者以外のユーザを取得する
+        //$users = User::where('id' ,'<>' , $user->id)->get();
+        // チャットユーザ選択画面を表示
+        return $user;
     }
 
     /**
@@ -29,41 +36,34 @@ class PlanController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage. 
+     * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $input = $request;
-        $plan = new Plan;
-        $plan->user_id = Auth::id();
-        $plan->plan = $request->input('plan');
-        $plan->plan_detail = $request->plan_detail;
-        $plan->condition = $request->condition;
-        $plan->condition_detail = $request->condition_detail;
-        return $input;
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Plan  $plan
+     * @param  \App\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function show(Plan $plan)
+    public function show(Message $message)
     {
-        return $plan;
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Plan  $plan
+     * @param  \App\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function edit(Plan $plan)
+    public function edit(Message $message)
     {
         //
     }
@@ -72,24 +72,22 @@ class PlanController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Plan  $plan
+     * @param  \App\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Plan $plan)
+    public function update(Request $request, Message $message)
     {
-        $plan->update($request->all());
-        return $plan;
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Plan  $plan
+     * @param  \App\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Plan $plan)
+    public function destroy(Message $message)
     {
-        $deleted = $plan->delete();
-        return compact('deleted');
+        //
     }
 }
